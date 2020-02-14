@@ -1,0 +1,129 @@
+{% load static %}
+<script>
+    alert("{{message}}");
+</script>
+<!DOCTYPE html>
+    <html language="English">
+	    <head>
+		    <title>Registration Page</title>
+				<meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                <!-- <link rel="stylesheet" type="text/css" href="css/global.css"> -->
+           
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+            <style>
+            
+*{color:#fff;}
+
+.bg{
+
+    background:url("{% static '/images/shutter1.jpg' %}") no-repeat; width:100%; height:100%; 
+	/* background-color: gray;  */
+}
+.form-container{border :0px solid #fff; padding: 35px 40px; margin-top: 15vh; -webkit-box-shadow: -1px 4px 25px 1px rgba(0,0,0,1);
+-moz-box-shadow: -1px 4px 50px 1px rgba(0,0,0,1);
+box-shadow: -1px 4px 25px 1px rgba(0,0,0,1);} 
+
+            </style>
+
+        </head>
+
+<body class="bg">
+			
+        <div style="float: right; margin-right: 30px;margin-top: 50px;">
+            <a href="/">
+            <button type="button" class="btn-primary" style="border-radius: 30px;">Logout</button></a>
+
+        </div>
+        <div class="container-fluid  " >
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-12"></div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        {% block content %}
+                        <form class="form-container" action="update" method="POST">
+                            
+                            {% csrf_token %}
+                            <div class="row2" style="box-shadow: -1px 4px 25px 1px rgb(221, 93, 93);">
+                            <h2 style="text-align: center;">User Profile</h2></div><br><br>
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Name :</label>
+                                <input type="text" name="vname" class="form-control" id="empname" value="{{data.empname  }}" disabled>
+                                <input type="text" name="fname" id="empname" value="{{data.empname  }}" style="visibility: hidden;">
+                                
+                                
+                              </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Age : </label>
+                                <input type="text" name="age" class="form-control" id="age" value="{{ data.age }}"  disabled>
+                
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Gender : </label>
+                                <input type="text" name="gender" class="form-control" id="gender" value="{{ data.gender  }}" disabled>
+                                
+                
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Qualification : </label>
+                                <input type="text" name="qualification" class="form-control" id="qualification" value="{{ data.qualification  }}"disabled>
+                            
+                
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Address : </label>
+                                <input name="address" class="form-control" id="address" value="{{ data.address  }}" disabled></input>
+                
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Pincode : </label>
+                                <input type="text" name="pin" id="pin" class="form-control" value="{{ data.pincode  }}" disabled>
+                
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Employment : </label>
+                                <input type="text" name="employment" id="employment" class="form-control" value="{{ data.employment }}" disabled>
+                                
+                
+                            </div>
+                            <br>
+                            <br>
+                            <div class="row2" style="box-shadow: -1px 4px 25px 1px rgb(221, 93, 93);">
+                            <div class="text-center">
+                                <input type="button" onclick="check()" class="btn btn-link " style="color:white;" value="Click to update" />
+                                &nbsp;
+                                &nbsp;
+                                <button type="submit" name="submit" class="btn btn-link " style="color:white;">Update Profile</button>
+                            </div>
+                        </div>
+                        </form>
+                        {% endblock %}
+
+                    </div>
+                
+            </div>
+        </div>
+
+
+</body>
+</html>
+<script>
+    var check = function() {
+        
+        alert("You can Update the field now !");
+        var name=document.getElementById('empname').value;// = false;
+         //document.getElementById('empname').disabled=false;
+       
+         document.getElementById('age').disabled = false;
+         document.getElementById('gender').disabled = false;
+         document.getElementById('qualification').disabled = false;
+         document.getElementById('address').disabled = false;
+         document.getElementById('pin').disabled = false;
+         document.getElementById('employment').disabled = false;
+         
+                  
+     }
+
+    
+
+</script>

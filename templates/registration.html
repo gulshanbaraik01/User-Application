@@ -1,0 +1,201 @@
+{% load static %}
+<!DOCTYPE html>
+    <html language="English">
+	    <head>
+		    <title>Registration Page</title>
+				<meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                <!-- <link rel="stylesheet" type="text/css" href="/css/global.css"> -->
+                
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+                <style>
+            
+                    *{color:#fff;}
+                    
+                    .bg{
+                    
+                        background:url("{% static '/images/shutter1.jpg' %}") no-repeat; width:100%; height:100%; 
+                        /* background-color: gray;  */
+                    }
+                    .form-container{border :0px solid #fff; padding: 35px 40px; margin-top: 15vh; -webkit-box-shadow: -1px 4px 25px 1px rgba(0,0,0,1);
+                    -moz-box-shadow: -1px 4px 50px 1px rgba(0,0,0,1);
+                    box-shadow: -1px 4px 25px 1px rgba(0,0,0,1);} 
+                    
+                                </style>
+                    
+        </head>
+        <body class="bg">
+
+            
+            
+	        <div class="container-fluid  " >
+		        <div class="row">
+			        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+			            <div class="col-md-4 col-sm-4 col-xs-12">
+
+				            <form class="form-container" action="addData" method="POST">
+                                {% csrf_token %}
+					            <h2 style="text-align: center;">Registration</h2>
+
+                                <div class="form-group">
+                                    <label for="exampleInputName">Name</label>
+                                    <input type="text" name="fname" class="form-control" id="exampleInputEmail1" placeholder="Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Age</label>
+                                    <input type="text" name="age" class="form-control" id="age"  placeholder="Age" required>
+                                </div>
+                                <div class="form-group"  >
+                                    <label for="exampleInputName">Gender</label>
+                                    <select class="form-control" id="sel1" name="gender" >
+                                        <option >--Select--</option>
+                                        <option style="color: black;">Male</option>
+                                        <option style="color: black;">Female</optionstyle="color: black;">
+                                       
+                                      </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName">Qualification</label>
+                                    <input type="text" name="qualification" class="form-control" id="exampleInputEmail1" placeholder="Qualification" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName">Address</label>
+                                    <textarea name="address" class="form-control" id="exampleInputEmail1" placeholder="Address" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">PIN Code</label>
+                                    <input type="text" name="pin" id="pin" class="form-control"  placeholder="PIN" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName">Employment</label>
+                                    <select class="form-control" id="sel1" name="employment" style="color: black;" >
+                                        <option >--Select--</option>
+                                        <option style="color: black;">Govt Employee</option>
+                                        <option style="color: black;">Private Sector</option>
+                                        <option style="color: black;">Student</option>
+                                        <option style="color: black;">Retired</option>
+                                        <option style="color: black;" >Not Working</option>
+                                       
+                                      </select>
+                                </div>
+
+                                
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password"  onkeyup='check();' name="password" id="psd1" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                                </div>
+                                <div>
+                                    <label for="exampleInputPassword1">Confirm Password</label>
+                                    <input type="password" onkeyup='check();' name="confpassword" id="psd2" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                                    <span id='match' style="font-size:15px;font-family:sans-serif;"></span>
+                                </div>
+                                <br>
+					            <div class="text-center">
+  							        <button type="submit" name="submit" id="rgt" class="btn btn-success" disabled > Register</button>
+                                    &nbsp;
+                                    <button type="reset" id="rst" class="btn btn-success btn">Reset</button>
+                                    &nbsp;
+                                    &nbsp;
+                                </div>
+                                <br>
+                                <div class="text-center">
+                                    <label style="font-size:15px;">
+                                    Already Have an account !
+                                    <a href="/" style="text-decoration: none;">Login </a>
+                                    </label>
+                                </div>
+  					            
+  				            </form>
+                        </div>
+                </div>
+                
+                <style>
+                    footer .container .row .social
+                      {
+                        
+                        padding: 20px;
+                        font-size: 40px;
+                        width: 70px;
+                        text-align: center;
+                        text-decoration: none;
+                        margin: 5px 20px;
+                        color: #818181;
+                      }
+                    
+                      footer .container
+                      {
+                    
+                        background-color: white;
+                        text-align: center;
+                      }
+                    
+                      footer
+                      {
+                        background-color: white;
+                        text-align: center;
+                      }
+                    
+                    </style>
+                    
+            </div>
+
+            <!-- Footer -->
+            <br>
+            <br>
+            <br>
+		<br>
+            
+            
+            
+                <!-- Copyright -->
+                    <div class="footer-copyright text-center py-3">
+                        Copyright @ 2020 User Credentials Pvt. Ltd.
+                        <br>
+                        All rights reserved
+                        <br>
+                        <br>
+                        <u><a href="#" style="color:white;"> Privacy policy</a></u> &nbsp; |
+                        &nbsp; <u><a href="#" style="color:white;">Terms of service</a></u> &nbsp; |
+                        &nbsp;<u><a href="#" style="color:white;">Service Agreement</a></u> &nbsp;|
+                        &nbsp;<u><a href="#" style="color:white;">Contact us</a> </u> 
+                    </div>
+                    <br>
+                    <br>
+                <!-- Copyright -->
+                  
+            
+
+        </body>
+    </html>
+
+<script>
+        var check = function() {
+            var p1 = document.getElementById('psd1').value;
+            var p2 = document.getElementById('psd2').value;
+
+            var l = p1.length;
+            if (l<8)
+                {
+                    document.getElementById('match').style.color = 'red';
+                    document.getElementById('match').innerHTML = 'Length should be minimum of 8 characters !';
+                }
+                else{
+                        if (p1===p2) {
+                        document.getElementById('match').style.color = 'green';
+                        document.getElementById('match').innerHTML = 'Matched';
+                        document.getElementById('rgt').disabled = false;
+                         } else {
+                        document.getElementById('match').style.color = 'red';
+                        document.getElementById('match').innerHTML = 'Not Matched';
+                        //document.getElementById('submit').disabled = false;
+                        }   
+
+                    }
+  
+         }
+
+        
+
+</script>
